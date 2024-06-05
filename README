@@ -6,9 +6,10 @@
 
 - Begin by running the following command in your project:
 
-```
+```bash
 npm init
 ```
+
 
 - Fill out information accordingly.
 
@@ -19,10 +20,10 @@ npm init
 
 # Setting Up Express Server
 
-- This code sets up an Express.js server to create a basic API for user data retrieval.
-- It connects to a MongoDB database using Mongoose.
-- An API endpoint ("/getUsers") is defined to fetch user data.
-- The server runs on the specified port or defaults to 7000 if not provided.
+This code sets up an Express.js server to create a basic API for user data retrieval.
+It connects to a MongoDB database using Mongoose.
+An API endpoint ("/getUsers") is defined to fetch user data.
+The server runs on the specified port or defaults to 7000 if not provided.
 
 ```javascript
 import express from "express";
@@ -36,24 +37,24 @@ const PORT = process.env.PORT || 7000;
 const MONGOURL = process.env.MONGO_URL;
 
 mongoose
-	.connect(MONGOURL)
-	.then(() => {
-		console.log("Connected successfully.");
-		app.listen(PORT, () => {
-			console.log(`Server is running on port ${PORT}`);
-		});
-	})
-	.catch((error) => console.log(error));
+    .connect(MONGOURL)
+    .then(() => {
+        console.log("Connected successfully.");
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    })
+    .catch((error) => console.log(error));
 
 const userSchema = new mongoose.Schema({
-	name: String,
-	age: Number,
+    name: String,
+    age: Number,
 });
 
 const UserModel = mongoose.model("users", userSchema);
 
 app.get("/getUsers", async (req, res) => {
-	const userData = await UserModel.find();
-	res.json(userData);
+    const userData = await UserModel.find();
+    res.json(userData);
 });
-```
+
