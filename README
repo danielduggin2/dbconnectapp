@@ -4,19 +4,19 @@
 
 # Initialization
 
-- Begin by running the following command in your project:
+Begin by running the following command in your project:
 
 ```bash
 npm init
 ```
 
 
-- Fill out information accordingly.
+Fill out information accordingly.
 
 # Connecting to MongoDB
 
-- In MongoDB, create your database and database collection. Here we used "dbconnect" and "users".
-- Define the port you will be using and connect via the MongoDB URL.
+In MongoDB, create your database and database collection. Here we used "dbconnect" and "users".
+Define the port you will be using and connect via the MongoDB URL.
 
 # Setting Up Express Server
 
@@ -57,4 +57,4 @@ app.get("/getUsers", async (req, res) => {
     const userData = await UserModel.find();
     res.json(userData);
 });
-
+```
